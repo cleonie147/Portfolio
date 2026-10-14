@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+<style>
+  /* Base Dark Slate Style for All Interactive Cards */
+  .service-card,
+  .project-card,
+  .contact-card {
+    background-color: #1e293b !important;
+    border: 1px solid #334155;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Universal Blue Hover Style */
+  .service-card:hover,
+  .project-card:hover,
+  .contact-card:hover {
+    background-color: #2563eb !important; /* Vivid Blue */
+    transform: translateY(-4px);
+  }
+
+  /* Force all nested icons, titles, and text to crisp white on hover */
+  .service-card:hover *,
+  .project-card:hover *,
+  .contact-card:hover * {
+    color: #ffffff !important;
+  }
+</style>
+
+
+  <meta charset="utf-8" />
+
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+
+  <meta
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    name="viewport"
+  />
+
+  <title>Cleonie | Data Analyst Portfolio</title>
+
+  <meta property="og:title" content="Cleonie | Data Analyst Portfolio" />
+
+  <meta property="og:locale" content="en_US" />
+
+  <link
+    rel="canonical"
+    href="//"
+  />
+
+  <meta
+    property="og:url"
+    content="//"
+  />
+
+  <meta
+    name="description"
+    content="Data Analyst Portfolio showcasing skills in SQL, Excel, Power BI and Python."
+  />
+
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+
+  <meta name="theme-color" content="#5540af" />
+
+  <meta property="og:site_name" content="Cleonie Protfolio" />
+
+  <meta property="og:image" content="assets/img/social.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="twitter:site" content="@tailwindmade" />
+
+  <link
+    crossorigin="crossorigin"
+    href="https://fonts.gstatic.com"
+    rel="preconnect"
+  />
+
+  <link
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="preload"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet"href="assets/styles/main.min.css"/>
+  
+  <script
+    defer
+    src="https://unpkg.com/@alpine-collective/toolkit@1.0.0/dist/cdn.min.js"
+  ></script>
+
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  
+</head>
+
+
+  <body style="background-color: #111111 !important; color: #f8fafc! important;"
+    :class="{ 'overflow-hidden max-h-screen': mobileMenu }"
+    class="relative"
+    x-data="{ mobileMenu: false }"
+  >
+    
+    <div id="main" class="relative">
+      <div
+  x-data="{
+    triggerNavItem(id) {
+        $scroll(id)
+    },
+    triggerMobileNavItem(id) {
+        mobileMenu = false;
+        this.triggerNavItem(id)
+    }
+}"
+>
+  <div class="w-full z-50 top-0 py-3 sm:py-5  absolute
+  ">
+  <div class="container flex items-center justify-between">
+    <div>
+      <a href="/">
+        <span class="font-header text-2xl font-bold text-white">Cleonie</span>
+      </a>
+    </div>
+    <div class="hidden lg:block">
+      <ul class="flex items-center">
+        
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#about')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >About</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#services')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Services</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#portfolio')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Portfolio</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+               
+                
+        <li class="group pl-6">
+          
+          <span
+            @click="triggerNavItem('#contact')"
+            class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+            >Contact</span
+          >
+          
+          <span
+            class="block h-0.5 w-full bg-transparent group-hover:bg-yellow"
+          ></span>
+        </li>
+        
+      </ul>
+    </div>
+    <div class="block lg:hidden">
+      <button @click="mobileMenu = true">
+        <i class="bx bx-menu text-4xl text-white"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="pointer-events-none fixed inset-0 z-70 min-h-screen bg-black bg-opacity-70 opacity-0 transition-opacity lg:hidden"
+  :class="{ 'opacity-100 pointer-events-auto': mobileMenu }"
+>
+  <div
+    class="absolute right-0 min-h-screen w-2/3 bg-primary py-4 px-8 shadow md:w-1/3"
+  >
+    <button
+      class="absolute top-0 right-0 mt-4 mr-4"
+      @click="mobileMenu = false"
+    >
+      <img src="/assets/img/icon-close.svg" class="h-10 w-auto" alt="" />
+    </button>
+
+    <ul class="mt-8 flex flex-col">
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#about')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >About</span
+        >
+        
+      </li>
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#services')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Services</span
+        >
+        
+      </li>
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#portfolio')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Portfolio</span
+        >
+        
+      </li>
+      
+    
+      
+      
+      
+      <li class="py-2">
+        
+        <span
+          @click="triggerMobileNavItem('#contact')"
+          class="cursor-pointer pt-0.5 font-header font-semibold uppercase text-white"
+          >Contact</span
+        >
+        
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+      <div><div
+  class="relative bg-cover bg-center bg-no-repeat py-8"
+  style="background-image: url(assets/img/bg-hero.jpg)"
+>
+  <div
+    class="absolute inset-0 z-20 bg-gradient-to-r from-hero-gradient-from to-hero-gradient-to bg-cover bg-center bg-no-repeat"
+  ></div>
+
+  <div
+    class="container relative z-30 pt-20 pb-12 sm:pt-56 sm:pb-48 lg:pt-64 lg:pb-48"
+  >
+    <div class="flex flex-col items-center justify-center lg:flex-row">
+      <div class="rounded-full border-8 border-primary shadow-xl">
+        <img
+          src="assets/img/profilepic.jpeg"
+          class="h-48 rounded-full object-cover"
+          alt="Cleonie"
+        />
+      </div>
+      <div class="pt-8 sm:pt-10 lg:pl-8 lg:pt-0">
+        <h1
+          class="text-center font-header text-4xl text-white sm:text-left sm:text-5xl md:text-6xl"
+        >
+          Hello I'm Cleonie!
+        </h1>
+          <p class="pt-2 font-body text-xl font-medium text-white">CSE Student at SMVITM | Aspiring Data Analyst</p>
+        <div
+          class="flex flex-col justify-center pt-3 sm:flex-row sm:pt-5 lg:justify-start"
+        >
+          <div
+            class="flex items-center justify-center pl-0 sm:justify-start md:pl-1"
+          >
+            <p class="font-body text-lg uppercase text-white">Let's connect</p>
+            <div class="hidden sm:block">
+              <i class="bx bx-chevron-right text-3xl text-yellow"></i>
+            </div>
+          </div>
+          <div
+            class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0"
+          >
+            <a href="https://www.linkedin.com/in/cleonie-" target="_blank" class="p1-4">
+              <i
+                class="bx bxl-linkedin-square text-2xl text-white hover:text-yellow"
+              ></i>
+            </a>
+            <a href="https://github.com/cleonie147" target="_blank" class="pl-4">
+              <i
+                class="bx bxl-github text-2xl text-white hover:text-yellow"
+              ></i>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-grey-50" id="about" style="background-color: #111111 !important;">
+  <div class="container flex flex-col items-center py-16 md:py-20 lg:flex-row">
+    <div class="w-full text-center sm:w-3/4 lg:w-3/5 lg:text-left">
+      <h2
+        class="font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+      >
+        About Me
+      </h2>
+      <h4
+        class="pt-6 font-header text-xl font-medium text-grey-20 sm:text-2xl lg:text-3xl"
+      >
+        I'm Cleonie, an Aspiring Data Analyst.
+      </h4>
+      <p class="pt-6 font-body leading-relaxed text-grey-20">
+        Motivated Computer Science and Engineering undergraduate at SMVITM with a foundation in Python, Java, C and SQL. Eager to apply programming logic to data analysis, build practical scripts and develop clean technical projects.
+      </p>
+      <div
+        class="flex flex-col justify-center pt-6 sm:flex-row lg:justify-start"
+      >
+        <div class="flex items-center justify-center sm:justify-start">
+          <p class="font-body text-lg font-semibold uppercase text-grey-20">
+            Connect with me
+          </p>
+          <div class="hidden sm:block">
+            <i class="bx bx-chevron-right text-2xl text-primary"></i>
+          </div>
+        </div>
+        <div
+          class="flex items-center justify-center pt-5 pl-2 sm:justify-start sm:pt-0"
+        >
+          <a href="https://www.linkedin.com/in/cleonie-" target="_blank" class="p1-4">
+            <i
+              class="bx bxl-linkedin text-2xl text-primary hover:text-yellow"
+            ></i>
+          </a>
+          <a href="https://github.com/cleonie147" target="_blank" class="pl-4">
+            <i
+              class="bx bxl-github text-2xl text-primary hover:text-yellow"
+            ></i>
+          </a>
+                    
+        </div>
+      </div>
+    </div>
+    <div class="w-full pl-0 pt-10 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0">
+      <!--skill 1 sql-->
+      <div>
+        <div class="flex items-end justify-between">
+          <h4 class="font-body font-semibold uppercase text-grey-20">
+            SQL
+          </h4>
+          <h3 class="font-body text-3xl font-bold text-primary">75%</h3>
+        </div>
+        <div class="mt-2 h-3 w-full rounded-full bg-lila">
+          <div class="h-3 rounded-full bg-primary" style="width: 75%"></div>
+        </div>
+      </div>
+      
+      <!--skill 2 python-->
+      <div class="pt-6">
+        <div class="flex items-end justify-between">
+          <h4 class="font-body font-semibold uppercase text-grey-20">Python</h4>
+          <h3 class="font-body text-3xl font-bold text-primary">75%</h3>
+        </div>
+        <div class="mt-2 h-3 w-full rounded-full bg-lila">
+          <div class="h-3 rounded-full bg-primary" style="width: 75%"></div>
+        </div>
+      </div>
+
+      <!--skill 3 c & java-->
+      <div class="pt-6">
+        <div class="flex items-end justify-between">
+          <h4 class="font-body font-semibold uppercase text-grey-20">
+            Java
+          </h4>
+          <h3 class="font-body text-3xl font-bold text-primary">70%</h3>
+        </div>
+        <div class="mt-2 h-3 w-full rounded-full bg-lila">
+          <div class="h-3 rounded-full bg-primary" style="width: 70%"></div>
+        </div>
+      </div>
+      <div class="pt-6">
+        <div class="flex items-end justify-between">
+          <h4 class="font-body font-semibold uppercase text-grey-20">C</h4>
+          <h3 class="font-body text-3xl font-bold text-primary">65%</h3>
+        </div>
+        <div class="mt-2 h-3 w-full rounded-full bg-lila">
+          <div class="h-3 rounded-full bg-primary" style="width: 65%"></div>
+        </div>
+      </div>
+
+      <!--skill 2 html-->
+      <div class="pt-6">
+        <div class="flex items-end justify-between">
+          <h4 class="font-body font-semibold uppercase text-grey-20">HTML & CSS</h4>
+          <h3 class="font-body text-3xl font-bold text-primary">50%</h3>
+        </div>
+        <div class="mt-2 h-3 w-full rounded-full bg-lila">
+          <div class="h-3 rounded-full bg-primary" style="width: 50%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-16 md:py-20" id="services">
+  <h2
+    class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+  >
+    Services
+  </h2>
+  <h3
+    class="pt-6 text-center font-header text-xl font-medium text-grey-20 sm:text-2xl lg:text-3xl"
+  >
+    Core Analytical Capabilities
+  </h3>
+
+
+  <div class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 lg:gap-8 max-w-4xl mx-auto">
+  
+  <!-- Card 1: Data Analysis -->
+<div class="service-card group rounded-lg py-10 px-8 text-center shadow-md">
+  <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+    <div class="hidden group-hover:block">
+      <img src="assets/img/icon-development-white.svg" alt="development icon" />
+    </div>
+    <div class="block group-hover:hidden">
+      <img src="assets/img/icon-development-black.svg" alt="development icon" />
+    </div>
+  </div>
+  <div class="text-center">
+    <h3 class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-white lg:text-xl">
+      DATA ANALYSIS &amp; CLEANING
+    </h3>
+    <p class="text-slate-300 pt-4 text-sm group-hover:text-white md:text-base">
+      Cleaning, querying and analysing datasets using Python and SQL to discover trends and actionable insights.
+    </p>
+  </div>
+</div>
+
+  <!-- Card 2: Database Management -->
+  <div class="service-card group rounded-lg py-10 px-8 text-center shadow-md">
+    <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+      <div class="hidden group-hover:block">
+        <img src="assets/img/icon-content-white.svg" alt="content marketing icon" />
+      </div>
+      <div class="block group-hover:hidden">
+        <img src="assets/img/icon-content-black.svg" alt="content marketing icon" />
+      </div>
+    </div>
+    <div class="text-center">
+      <h3 class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-white lg:text-xl">
+        DATABASE MANAGEMENT
+      </h3>
+      <p class="text-slate-300 pt-4 text-sm group-hover:text-white md:text-base">
+        Designing relational database schemas, writing optimized SQL queries and managing structured data effectively.
+      </p>
+    </div>
+  </div>
+
+</div>  
+    
+  </div>
+</div>
+
+<div class="container py-16 md:py-20" id="portfolio">
+  <h2
+    class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+  >
+    My Projects
+  </h2>
+  <h3
+    class="pt-6 text-center font-header text-xl font-medium text-grey-20 sm:text-2xl lg:text-3xl"
+  >
+    Data Analytics & Code Repositories
+  </h3>
+
+ <div class="mx-auto max-w-4xl pt-10">
+  <a
+    href="https://github.com/cleonie147" 
+    target="_blank"
+    class="project-card rounded-lg py-16 px-8 text-center shadow-md block hover:no-underline"
+  >
+    <div class="flex items-center justify-center mb-4 text-4xl text-primary">
+      <i class="bx bxl-github"></i>
+    </div>
+    <h3 class="font-header text-xl font-bold uppercase text-primary mb-2">
+      PYTHON &amp; SQL REPOSITORIES
+    </h3>
+    <p class="font-body text-sm text-slate-300 md:text-base">
+      Explore my academic projects, database schemas, and Python scripts on GitHub.
+    </p>
+  </a>
+</div>
+</div>
+
+
+
+
+
+<div class="container py-16 md:py-20" id="work">
+  <h2
+    class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+  >
+    Education & Qualifications
+  </h2>
+  <h3
+    class="pt-6 text-center font-header text-xl font-medium text-grey-20 sm:text-2xl lg:text-3xl"
+  >
+    Academic Background & Learning Journey
+  </h3>
+
+  
+  <div class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3">
+    <!--Entry 1-->
+
+    <div class="mt-1 flex flex-col text-center md:flex-row md:text-left">
+      <div class="md:w-2/5">
+
+    <span
+      class="font-header font-bold text-grey-20"> 2022 - Present</span>
+    <span class="block font-body text-sm text-grey">SMVITM</span>
+    </div>
+
+        <div class="md:w-3/5 md:pl-8">
+        <h4 class="font-header text-lg font-bold text-primary uppercase">B.E. in Computer Science & Engineering</h4>
+        <p class="pt-2 font-body text-sm text-grey">Shri Madhwa Vadiraja Institute of Technology and Management. Coursework focused on Data Structures, Object-Oriented Programming(C/Java), Database Systems(SQL) and Python.
+        </p>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+<div
+  class="bg-cover bg-top bg-no-repeat pb-16 md:py-16 lg:py-24"
+  style="background-image: url(assets/img/experience-figure.png)"
+  id="statistics"
+>
+  <div class="container">
+    <div
+      class="mx-auto w-5/6 py-16 shadow md:w-11/12 lg:py-20 xl:py-24 2xl"
+      style="background-color: #111111 ! important;"
+    >
+      <div class="grid grid-cols-2 gap-5 md:gap-8 xl:grid-cols-4 xl:gap-5">
+
+        <!--stat1-->
+
+        <div
+          class="flex flex-col items-center justify-center text-center md:flex-row md:text-left"
+        >
+          <div>
+            <img
+              src="assets/img/icon-project.svg"
+              class="mx-auto h-12 w-auto md:h-20"
+              style="filter: brightness(0) invert(1);"
+              alt="icon project"
+            />
+          </div>
+          <div class="pt-5 md:pl-5 md:pt-0">
+            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+              4+
+            </h1>
+            <h4
+              class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl"
+            >
+              Core Languages
+            </h4>
+          </div>
+        </div>
+
+         <!--stat2-->
+
+        <div
+          class="flex flex-col items-center justify-center text-center md:flex-row md:text-left"
+        >
+          <div>
+            <img
+              src="assets/img/icon-award.svg"
+              class="mx-auto h-12 w-auto md:h-20"
+              style="filter: brightness(0) invert(1);"
+              alt="icon award"
+            />
+          </div>
+          <div class="pt-5 md:pl-5 md:pt-0">
+            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+              100%
+            </h1>
+            <h4
+              class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl"
+            >
+              Technical Focus
+            </h4>
+          </div>
+        </div>
+
+
+
+        <div
+          class="mt-6 flex flex-col items-center justify-center text-center md:mt-10 md:flex-row md:text-left lg:mt-0"
+        >
+          <div>
+            <img
+              src="assets/img/icon-happy.svg"
+              class="mx-auto h-12 w-auto md:h-20"
+              style="filter: brightness(0) invert(1);"
+              alt="icon happy clients"
+            />
+          </div>
+          <div class="pt-5 md:pl-5 md:pt-0">
+            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+              100%
+            </h1>
+            <h4
+              class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl"
+            >
+              Data Integrity
+            </h4>
+          </div>
+        </div>
+
+        <div
+          class="mt-6 flex flex-col items-center justify-center text-center md:mt-10 md:flex-row md:text-left lg:mt-0"
+        >
+          <div>
+            <img
+              src="assets/img/icon-puzzle.svg"
+              class="mx-auto h-12 w-auto md:h-20"
+              style="filter: brightness(0) invert(1);"
+              alt="icon puzzle"
+            />
+          </div>
+          <div class="pt-5 md:pl-5 md:pt-0">
+            <h1 class="font-body text-2xl font-bold text-primary md:text-4xl">
+              100%
+            </h1>
+            <h4
+              class="text-grey-dark font-header text-base font-medium leading-loose md:text-xl"
+            >
+              Problem Solving
+            </h4>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container pt-16 pb-24" id="contact">
+  <h2
+    class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
+  >
+    Get In Touch
+  </h2>
+  <h3
+    class="pt-6 text-center font-header text-xl font-medium text-grey-20 sm:text-2xl lg:text-3xl"
+  >
+    Let's Connect &amp; Collaborate
+  </h3>
+
+  <div class="mx-auto w-full pt-10 mb-16 flex flex-col md:flex-row items-stretch justify-center gap-6 max-w-5xl">
+    
+    <!-- Contact Card 1: Phone -->
+    <a href="tel:+917676051900" class="contact-card rounded-lg py-10 px-8 text-center shadow-md flex-1 block hover:no-underline">
+      <div class="flex items-center justify-center mb-4 text-4xl text-primary">
+        <i class="bx bx-phone"></i>
+      </div>
+      <h3 class="font-header text-lg font-bold uppercase text-primary mb-2">
+        Call / WhatsApp
+      </h3>
+      <p class="font-body text-sm text-slate-300 md:text-base">
+        +91 7676051900
+      </p>
+    </a>
+
+    <!-- Contact Card 2: Email -->
+    <a href="mailto:cleonie147@gmail.com" class="contact-card rounded-lg py-10 px-8 text-center shadow-md flex-1 block hover:no-underline">
+      <div class="flex items-center justify-center mb-4 text-4xl text-primary">
+        <i class="bx bx-envelope"></i>
+      </div>
+      <h3 class="font-header text-lg font-bold uppercase text-primary mb-2">
+        Email
+      </h3>
+      <p class="font-body text-sm text-slate-300 md:text-base">
+        cleonie147@gmail.com
+      </p>
+    </a>
+
+    <!-- Contact Card 3: Address -->
+    <div class="contact-card rounded-lg py-10 px-8 text-center shadow-md flex-1">
+      <div class="flex items-center justify-center mb-4 text-4xl text-primary">
+        <i class="bx bx-map"></i>
+      </div>
+      <h3 class="font-header text-lg font-bold uppercase text-primary mb-2">
+        Address
+      </h3>
+      <p class="font-body text-sm text-slate-300 md:text-base">
+        Udupi, Karnataka, India
+      </p>
+    </div>
+
+  </div>
+</div>
+
+</div> <!-- Closes #main wrapper -->
+
+<!-- Footer Section with true spacing above it -->
+<div class="bg-primary py-10 mt-12">
+  <div class="container flex flex-col items-center justify-between text-center md:flex-row">
+    <p class="font-body text-white">
+      &copy; Copyright 2026. Designed &amp; Developed by Cleonie
+    </p>
+    <div class="flex items-center justify-center pt-4 md:pt-0">
+      <a href="https://www.linkedin.com/in/cleonie-" target="_blank" class="pl-4">
+        <i class="bx bxl-linkedin text-2xl text-white hover:text-yellow"></i>
+      </a>
+      <a href="https://github.com/cleonie147" target="_blank" class="pl-4">
+        <i class="bx bxl-github text-2xl text-white hover:text-yellow"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>
